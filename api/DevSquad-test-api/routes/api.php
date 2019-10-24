@@ -26,3 +26,12 @@ Route::get('/products/{id}', 'ProductsController@show');
 Route::post('/products', 'ProductsController@create');
 Route::put('/products/{id}', 'ProductsController@update');
 Route::delete('/products/{id}', 'ProductsController@delete');
+
+
+Route::post('auth/login', 'AuthController@login');
+Route::group(['middleware' => 'jwt.auth'], function(){
+  Route::get('auth/user', 'AuthController@user');
+});
+Route::group(['middleware' => 'jwt.refresh'], function(){
+  Route::get('auth/refresh', 'AuthController@refresh');
+});

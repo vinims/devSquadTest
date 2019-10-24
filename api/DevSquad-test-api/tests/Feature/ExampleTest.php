@@ -14,10 +14,6 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $user = factory(User::class)->create();
 
-        $response = $this->actingAs($user)
-                         ->withSession(['foo' => 'bar'])
-                         ->get('/');
     }
 }

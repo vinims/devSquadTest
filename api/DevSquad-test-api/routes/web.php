@@ -30,7 +30,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
 
-
-
 });
 
+Route::post('auth/register', 'AuthController@register');
